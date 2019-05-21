@@ -10,7 +10,7 @@
 <%! public String hello(){
 		return "hello!";
 	}
-%>
+%> 
 
 	hello() : <%=hello() %> <br>
 	
