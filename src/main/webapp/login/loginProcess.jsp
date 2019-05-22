@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>loginProces</title>
+
+
 </head>
 <body>
 	loginProcess.jsp <br>
@@ -46,6 +48,9 @@
 <br><br>
 	<!-- 주소???  -->
 	request.getParameterMap() : <%=request.getParameterMap() %> <br>
+	
+	<!--일반화 유형 Enumeration(String>을 이용하면 e.nextElement()에서 String으로 자료유형 변환이 필요 없이 
+	반환 값을 String유형 변수 name에 저장할 수 있는 장점이 있다. -->
 	
 	<h2> request.getParameterNames</h2>
 	<% Enumeration<String> parameterNames = request.getParameterNames(); 

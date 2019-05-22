@@ -1,35 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html >
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
-	<!-- 어디로 요청을 보낼지 지정 해야한다. -->
-	
-	<!-- form 태그 action속성을 이용한다. 어떻게 보낼지  (http method) ??? form 태그 method 속성 (get-default/ post) -->
-	
-	<%-- /login/login.jsp --> /login/loginProcess.jsp --%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
+    <title>Signin Template for Bootstrap</title>
 
-	<form action="<%= request.getContextPath() %>/login/loginProcess.jsp" method="post">
-	<!-- 별도의 방식 지정이 없으면 get방식으로 간다   URL의 주소가 다르다 get, post로 했을때!-->
-	
-		userId : <input type="text" name="userId" value="sally" /> <br> 
-		userId : <input	type="text" name="userId" value="셀리" /> <br> 
-		password : <input type="password" name="password" value="pass1234" /> <br>
-		<input type="submit" value="로그인" />
-		<!-- submit을 누르면 form action부분으로 간다! name안써주면 매개 못 받아요  -->
-		
-	</form>
+    <!-- Bootstrap core CSS -->
+    <link href="<%=request.getContextPath() %>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom styles for this template -->
+    <link href="<%=request.getContextPath() %>/css/sign.css" rel="stylesheet">
 
+  </head>
 
+  <body>
 
+    <div class="container">
 
+      <form action="<%=request.getContextPath() %>/login/loginProcess.jsp" method="post" class="form-signin">
+      
+        <h2 class="form-signin-heading">Please sign in</h2>
+        
+        <label for="userId" class="sr-only">userId</label>
+        
+        <input type="text" id="userId" name="userId" class="form-control" placeholder="userId" required autofocus>
+        
+        <label for="inputPassword" class="sr-only">Password</label>
+        
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
 
-</body>
+    </div> <!-- /container -->
+
+  </body>
 </html>
