@@ -30,6 +30,10 @@
 		<img src="<%= request.getContextPath() %>/img/ryan.png">
 
 
+	<!-- 파라미터 받기  -->
+	request.getParameter("rangerName") : <%= request.getParameter("rangerName") %> <br>
+	<!--http://localhost/jsp/jsp/requestInfo.jsp?rangerName=%22%EB%9D%BC%EC%9D%B4%EC%96%B8%22  -->
+
 
 </body>
 </html>
