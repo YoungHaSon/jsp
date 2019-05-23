@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="application/vnd.ms-excel; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    
+
 <%
 	response.setHeader("Content-Disposition", "attachment; filename=line.xls");
 %>    
@@ -17,29 +17,19 @@
 			<th>이름</th>
 			<th>영문명</th>
 		</tr>
-
 		<tr>
 			<td>셀리</td>
 			<td>sally</td>
 		</tr>
-		
 		<tr>
 			<td>브라운</td>
 			<td>brown</td>
 		</tr>
-		
 		<tr>
 			<td>마이크</td>
 			<td>mike</td>
 		</tr>
 		
-		
-	
-	
 	</table>
-
-
-
-
 </body>
 </html>

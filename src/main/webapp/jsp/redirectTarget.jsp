@@ -9,6 +9,7 @@
 <body>
 
 	<%System.out.println("userId parameter redirectTarget : " +  request.getParameter("userId"));%>
+	
 	redirectTarget.jsp
 </body>
 </html>
