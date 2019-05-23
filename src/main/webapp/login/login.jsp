@@ -32,11 +32,11 @@
         
         <label for="userId" class="sr-only">userId</label>
         
-        <input type="text" id="userId" name="userId" class="form-control" placeholder="userId" required autofocus>
+        <input type="text" id="userId" value="brown" name="userId" class="form-control" placeholder="userId" required autofocus>
         
         <label for="inputPassword" class="sr-only">Password</label>
         
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" value="brown1234" name="password" class="form-control" placeholder="Password" required>
         
         <div class="checkbox">
           <label>

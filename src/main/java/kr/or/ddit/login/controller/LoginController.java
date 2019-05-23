@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import kr.or.ddit.user.model.UserVo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +53,17 @@ public class LoginController extends HttpServlet {
 //		RequestDispatcher rd = request.getRequestDispatcher("/login/login.jsp");
 //		rd.forward(request, response);
 		
-		request.getRequestDispatcher("/login/login.jsp").forward(request, response);
+		
+		//어떻게 생각해낸지 모름.... 의식의 흐름대로.......하하하....
+		
+		//session에 사용자 정보가 있을 경우 --> main 화면으로 이동
+		if(request.getSession().getAttribute("USER_INFO")!=null){
+			request.getRequestDispatcher("/main.jsp").forward(request, response);
+		}else{
+			//session에 사용자 정보가 없을 경우  --> 기본 로직
+			request.getRequestDispatcher("/login/login.jsp").forward(request, response);
+		}
+		
 		
 		
 	}
@@ -70,7 +83,14 @@ public class LoginController extends HttpServlet {
 		// 하지만 우리는 --> userId : brown이고 password : brown1234라는 값일 때 통과, 그 이외값은 불일치
 		
 		//일치하면 .... 로그인 성공 --> Main화면으로 이동 
-		if(userId.equals("brown")&&password.equals("brown1234")){
+		if((userId.equals("brown")&&password.equals("brown1234"))||(userId.equals("sally")&&password.equals("sally1234"))){
+			
+			//session에 사용자 정보를 넣어준다(사용빈도가 높기 때문에)
+			HttpSession session = request.getSession();
+			//이문장 왜쓴거지?
+			session.setAttribute("USER_INFO", new UserVo("브라운", "brown", "곰"));
+			
+			
 			RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
 			rd.forward(request, response);
 			
