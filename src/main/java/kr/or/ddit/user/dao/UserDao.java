@@ -14,9 +14,11 @@ public class UserDao implements IuserDao {
 	private static final Logger logger = LoggerFactory
 			.getLogger(UserDao.class);
 	
-	//userList()가 잘되는지 test하는 main
+	
+	//Test 코드!!!
 	public static void main(String[] args) {
 		
+		//userList() test
 		/***Given***/
 		IuserDao userDao = new UserDao();
 	
@@ -25,6 +27,18 @@ public class UserDao implements IuserDao {
 		
 		/***Then***/
 		logger.debug("userList : " + userList);
+	
+		
+		//getUser() test
+		/***Given***/
+		/***When***/
+		UserVo user = userDao.getUser("brown");
+		UserVo user1 = userDao.getUser("cony");
+	
+		/***Then***/
+		logger.debug("userInfo : " + user);
+		logger.debug("userInfo : " + user1);
+		
 		
 		
 	}
@@ -39,5 +53,20 @@ public class UserDao implements IuserDao {
 		SqlSession sqlSession = MyBatisUtil.getSqlSession();
 		List<UserVo> userList = sqlSession.selectList("user.userList");
 		return userList;
+	}
+
+	/**
+	* Method : getUser
+	* 작성자 : PC13
+	* 변경이력 :
+	* @param userId
+	* @return
+	* Method 설명 : 사용자 정보 조회
+	*/
+	@Override
+	public UserVo getUser(String userId) {
+		SqlSession sqlSession = MyBatisUtil.getSqlSession();
+		UserVo user = sqlSession.selectOne("user.getUser",userId);
+		return user;
 	}
 }

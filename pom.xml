@@ -5,7 +5,7 @@
 	<artifactId>jsp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	
+
 	<!-- mybatis를 사용하기 위한 -->
 	<repositories>
 		<repository>
@@ -63,6 +63,18 @@
 			<version>12.1.0.2</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- Junit?? API설치 -->
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+
+
 
 	</dependencies>
 
