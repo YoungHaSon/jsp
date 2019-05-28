@@ -97,6 +97,7 @@
 				//remember파라미터가 존재할 경우 userID, remember cookie 설정해준다
 				//remember파라미터가 존재하지 않을 결우 userID, remember cookie 삭제해준다
 				int cookieMaxAge = 0;
+				//login.jsp의 check box의 체크 여부..
 				if(request.getParameter("rememberme")!=null){
 					cookieMaxAge = 60*60*24*30;
 				}
