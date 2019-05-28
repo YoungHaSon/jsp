@@ -20,7 +20,7 @@ import kr.or.ddit.user.service.UserService;
  * Servlet implementation class Pagingnation
  */
 @WebServlet("/userPagingList")
-public class Pagingnation extends HttpServlet {
+public class Pagination extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	// 필수입니다 리스트를 받아올라면~!!

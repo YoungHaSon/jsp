@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%--   <% Integer.parseInt("datadasasd"); %>일부러 500Error발생시키는 부분 --%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
