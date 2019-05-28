@@ -95,15 +95,7 @@
   
   <error-page>
   	<error-code>500</error-code>
-  	<location>/error/500/500.jsp</location>
+  	<location>/error/500/500.html</location>
   </error-page>
-  
-  <error-page>
-  	<exception-type>java.lang.NumberFormatException</exception-type>
-  	<location>/WEB-INF/error/numberFormatException.jsp</location>
-  </error-page>
-  
-  
-  
   
 </web-app>
