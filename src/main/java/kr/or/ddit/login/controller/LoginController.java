@@ -87,9 +87,9 @@ public class LoginController extends HttpServlet {
 			
 			//session에 사용자 정보를 넣어준다(사용빈도가 높기 때문에)
 			HttpSession session = request.getSession();
-			//이문장 왜쓴거지?
-			session.setAttribute("USER_INFO", new UserVo("브라운", "brown", "곰"));
 			
+			//이문장 왜쓴거지? 임의로 설정한거
+			session.setAttribute("USER_INFO", new UserVo("브라운", "brown", "곰"));
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
 			rd.forward(request, response);
