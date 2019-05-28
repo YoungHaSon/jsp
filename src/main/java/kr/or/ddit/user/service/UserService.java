@@ -1,13 +1,20 @@
 package kr.or.ddit.user.service;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kr.or.ddit.mybatis.MyBatisUtil;
+import kr.or.ddit.paging.model.PageVo;
 import kr.or.ddit.user.dao.IuserDao;
 import kr.or.ddit.user.dao.UserDao;
 import kr.or.ddit.user.model.UserVo;
@@ -43,5 +50,31 @@ public class UserService implements IuserService {
 		return dao.getUser(userId);
 	}
 
+	@Override
+	public Map<String, Object> userPagingList(PageVo pageVo) {
+		//1.List<UserVo>,usersCnt()를 필드로 하는 vo
+		
+		//2.List<Object> resultList = new ArrayList<Object>(); --> 비추!
+		// resultList.add(userList);
+		// resultList.add(usersCnt);
+		
+		//3.Map<String, Object> resultMap = new HashMap<String, Object>();
+		// resultMap.put("userList", userList);
+		// resultMap.put("usersCnt", usersCnt);
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("userList", dao.userPagingList(pageVo));
+		
+		//usersCnt --> paginationSize를 계산해서 변경
+		int usersCnt = dao.usersCnt();
+		//pageSize = pageVo.getPageSize();
+		
+		int paginationSize = (int)Math.ceil((double)usersCnt/pageVo.getPageSize());
+		resultMap.put("paginationSize", paginationSize);
+		
+		return resultMap;
+	}
+	
+	
 
 }

@@ -5,6 +5,8 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="uservo" type="kr.or.ddit.user.model.UserVo" />
+		<typeAlias alias="pagevo" type="kr.or.ddit.paging.model.PageVo" />
+		<typeAlias alias="lprodvo" type="kr.or.ddit.lprod.model.LprodVo" />
 	</typeAliases>
   <environments default="development">
     <environment id="development">
@@ -21,5 +23,6 @@
   </environments>
   <mappers><!-- sql문 관리 -->
     <mapper resource="kr/or/ddit/config/mybatis/mapper/user.xml"/>
+    <mapper resource="kr/or/ddit/config/mybatis/mapper/lprod.xml"/>
   </mappers>
 </configuration>

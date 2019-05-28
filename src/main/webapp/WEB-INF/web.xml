@@ -57,4 +57,34 @@
     <servlet-name>LogoutController</servlet-name>
     <url-pattern>/LogoutController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Pagingnation</display-name>
+    <servlet-name>Pagingnation</servlet-name>
+    <servlet-class>kr.or.ddit.paging.model.Pagingnation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Pagingnation</servlet-name>
+    <url-pattern>/Pagingnation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LprodPagination</display-name>
+    <servlet-name>LprodPagination</servlet-name>
+    <servlet-class>kr.or.ddit.lprod.LprodPagination</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LprodPagination</servlet-name>
+    <url-pattern>/LprodPagination</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LprodController</display-name>
+    <servlet-name>LprodController</servlet-name>
+    <servlet-class>kr.or.ddit.lprod.controller.LprodController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LprodController</servlet-name>
+    <url-pattern>/LprodController</url-pattern>
+  </servlet-mapping>
 </web-app>

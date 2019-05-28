@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import kr.or.ddit.paging.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
 
 import org.junit.After;
@@ -14,6 +15,22 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+* UserDaoTest.java
+*
+* @author PC13
+* @version 1.0
+* @see
+*
+* <pre>
+* << 개정이력(Modification Information) >>
+*
+* 수정자 수정내용
+* ------ ------------------------
+* PC13 최초 생성
+*
+* </pre>
+*/
 public class UserDaoTest {
 	private static final Logger logger = LoggerFactory
 		.getLogger(UserDaoTest.class);
@@ -107,7 +124,45 @@ public class UserDaoTest {
 	//정렬순서? : 로직과 관련 (파라미터화 시킬수 있다.) 
 	//--> 사용자 아이디 순으로 정렬!!
 	
+	/**
+	* Method : usesrPagingListTest
+	* 작성자 : PC13
+	* 변경이력 :
+	* Method 설명 : 사용자 페이징 리스트 조회 테스트
+	*/
+	@Test
+	public void usesrPagingListTest(){
+		/***Given***/ //주어진 환경
+		PageVo pageVo = new PageVo(1,10);
 	
+		/*
+		PageVo pageVo = new PageVo();
+		PAGEVO.SETPAGE(1);
+		PAGEVo.setPageSize(10);
+		*/
+		
+		/***When***/
+		List<UserVo> userList = userDao.userPagingList(pageVo);
+		
+		
+		/***Then***/
+		assertNotNull(userList);
+		assertEquals(10, userList.size());
 	
+		
+	}
+	@Test
+	public void usersCntTest(){
+		/***Given***/
+		
+
+		/***When***/
+		int usersCnt = userDao.usersCnt();
+		
+		/***Then***/
+		assertEquals(105, usersCnt);
+		
+	}
+
 	
 }
