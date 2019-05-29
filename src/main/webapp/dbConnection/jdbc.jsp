@@ -10,7 +10,6 @@
 
 //connect 객체 얻어오는방법!!!!!!!
 
-
 		// DB작업에 필요한 객체변수 선언
 		Connection conn = null;
   		Statement stmt = null;

@@ -1,3 +1,5 @@
+<%@page import="javax.sql.DataSource"%>
+<%@page import="javax.naming.InitialContext"%>
 <%@page import="org.apache.commons.dbcp2.BasicDataSource"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
@@ -17,11 +19,15 @@
   		Statement stmt = null;
 		ResultSet rs = null;
 		
+		String DATASOURCE_CONTEXT = "java:comp/env/jdbc/oracleDB";
+		
 		try {
+			//
+			InitialContext context = new InitialContext();
+			DataSource bs = (DataSource) context.lookup("DATASOURCE_CONTEXT");
+			
 			//db랑 연결하는 방법
 			// 1. 드라이버 로딩
-			BasicDataSource bs = (BasicDataSource)application.getAttribute("bs");
-			
 			long startTime = System.currentTimeMillis();
 			for(int i =0; i < 20; i++){
 				conn = bs.getConnection();
