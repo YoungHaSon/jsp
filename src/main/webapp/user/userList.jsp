@@ -46,6 +46,7 @@
 								<% 
 									List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");
 								%>
+								${userList }
 		 							<% for(UserVo user : userList){%>
 											<tr>
 												<td><%=user.getUserId() %></td>

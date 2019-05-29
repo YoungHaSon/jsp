@@ -108,14 +108,14 @@
   <body>
 
     <div class="container">
-
-      <form id="frm" action="<%=request.getContextPath() %>/login" method="post" class="form-signin">
+								<%//el로 바꾸면! %>
+      <form id="frm" action="${pageContext.request.contextPath}/login" method="post" class="form-signin">
       
         <h2 class="form-signin-heading">Please sign in</h2>
         
         <label for="userId" class="sr-only">userId</label>
         
-        <input type="text" id="userId"  name="userId" class="form-control" placeholder="userId" required>
+        <input type="text" id="userId"  name="userId" class="form-control" placeholder="userId" required value="${param.userId }">
         
         <label for="inputPassword" class="sr-only">Password</label>
         

@@ -24,10 +24,10 @@
 		request.getMethod() : <%=request.getMethod() %> <br>
 		request.getProtocol() : <%=request.getProtocol() %> <br>
 		<!-- 믿에꺼는 개발할때 쓸수도 있음  -->
-		request.getContextPath() : <%=request.getContextPath() %> <br>
+		request.getContextPath() : ${pageContext.request.contextPath} <br>
 		request.getRequestURI() : <%=request.getRequestURI() %> <br>
 		
-		<img src="<%= request.getContextPath() %>/img/ryan.png">
+		<img src="${pageContext.request.contextPath}/img/ryan.png">
 
 
 	<!-- 파라미터 받기  -->

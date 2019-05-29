@@ -126,7 +126,9 @@
 				// 현상환에서 /jsp/login URl로 dispatch 방식으로 위임이 불가!?????
 				// request.getMethod(); //Get, Post라는 값을 리턴함.
 	
-				response.sendRedirect(request.getContextPath() + "/login");
+				
+				request.getRequestDispatcher(request.getContextPath() + "/login").forward(request, response);
+//				response.sendRedirect(request.getContextPath() + "/login");
 	
 			}
 	
