@@ -4,6 +4,9 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		<!-- core라이브러리를 쓸꺼니까! uri 잘 확인 -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,27 +42,20 @@
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<tr>
-									<th>사용자 아이디</th>
-									<th>사용자 이름</th>
-									<th>사용자 별명</th>
+									<th>사용자 아이디(el)</th>
+									<th>사용자 이름(el)</th>
+									<th>사용자 별명(el)</th>
 									<th>등록일시</th>
 								</tr>
 
-								<%
-									List<LprodVo> lprodList = (List<LprodVo>) request.getAttribute("lprodList");
-								%>
-								<%
-									for (LprodVo lprod : lprodList) {
-								%>
-								<tr>
-									<td><%=lprod.getLprod_id()%></td>
-									<td><%=lprod.getLprod_gu()%></td>
-									<td><%=lprod.getLprod_nm()%></td>
-									<td></td>
-								</tr>
-								<%
-									}
-								%>
+								<c:forEach items="${lprodList }" var="lprod">
+									<tr>
+										<td>${lprod.lprod_id }</td>
+										<td>${lprod.lprod_gu }</td>
+										<td>${lprod.lprod_nm }</td>
+										<td></td>
+									</tr>
+								</c:forEach>
 							</table>
 						</div>
 

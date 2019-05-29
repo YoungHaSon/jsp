@@ -2,6 +2,9 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- core라이브러리를 쓸꺼니까! uri 잘 확인 -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,24 +40,24 @@
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<tr>
-									<th>사용자 아이디</th>
-									<th>사용자 이름</th>
-									<th>사용자 별명</th>
+									<th>사용자 아이디(el)</th>
+									<th>사용자 이름(el)</th>
+									<th>사용자 별명(el)</th>
 									<th>등록일시</th>
 								</tr>
 
-								<% 
-									List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");
-								%>
-								${userList }
-		 							<% for(UserVo user : userList){%>
+								<!-- for을 돌릴 대상을 items에 넣으면 된다 el로!! user라는 이름에 하나씩 넣어준다. -->
+								<!-- userList의 데이터를 한건 조회해서 pageContext.setAttribute("user",vo); -->
+								<!-- var="user" userVo타입입니다... -->
+								<c:forEach items="${userList }" var="user">
 											<tr>
-												<td><%=user.getUserId() %></td>
-												<td><%=user.getName() %></td>
-												<td><%=user.getAlias() %></td>
+											<!-- user.userId / userId는-> userVo 속성명을 가져다 쓴다  -->
+												<td>${user.userId }</td>
+												<td>${user.name }</td>
+												<td>${user.alias }</td>
 												<td></td>
 											</tr>
-		 							<%} %>
+								</c:forEach>
 							</table>
 						</div>
 
