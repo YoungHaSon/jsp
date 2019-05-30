@@ -1,23 +1,16 @@
 package kr.or.ddit.user.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import kr.or.ddit.mybatis.MyBatisUtil;
 import kr.or.ddit.paging.model.PageVo;
 import kr.or.ddit.user.dao.IuserDao;
 import kr.or.ddit.user.dao.UserDao;
 import kr.or.ddit.user.model.UserVo;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UserService implements IuserService {
 

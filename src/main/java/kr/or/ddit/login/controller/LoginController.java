@@ -1,10 +1,8 @@
 	package kr.or.ddit.login.controller;
 	
 	import java.io.IOException;
-	
 
-
-	import javax.servlet.RequestDispatcher;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -12,15 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-	
 
-
-	import kr.or.ddit.user.model.UserVo;
-	
+import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.IuserService;
 import kr.or.ddit.user.service.UserService;
 
-	import org.slf4j.Logger;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 	
 	/**
@@ -134,7 +129,7 @@ import org.slf4j.LoggerFactory;
 				// 이문장 왜쓴거지? 임의로 설정한거
 				//userVo를 넘기는 것입니다!!!!!!
 				session.setAttribute("USER_INFO", uservo);
-	
+				
 				RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
 				rd.forward(request, response);
 	
@@ -146,6 +141,8 @@ import org.slf4j.LoggerFactory;
 	
 				//로그인 실패해도 login화면에 들어오면 ID를 띄워줄라고
 				//이동하는 경로 잘생각..
+				
+				
 				request.getRequestDispatcher("/login/login.jsp").forward(request, response);
 //				response.sendRedirect(request.getContextPath() + "/login");
 			}
