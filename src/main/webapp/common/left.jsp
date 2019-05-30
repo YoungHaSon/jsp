@@ -3,12 +3,12 @@
     
 <div class="col-sm-3 col-md-2 sidebar">
 	<ul class="nav nav-sidebar">
-		<li class="active"><a href="#">오호..아하..어허... <span class="sr-only">(current)</span></a></li>
+		<li class="active"><a href="${pageContext.request.contextPath}/main.jsp">Main.jsp</a></li>
 	
-		<li class="active"><a href="${pageContext.request.contextPath}/userList">UserList</a></li>
+		<li class="active"><a href="${pageContext.request.contextPath}/userList">/user/userList.jsp</a></li>
 		
 		<!-- a 태그는 기본적으로 get방식을 사용 -->
-		<li class="active"><a href="${pageContext.request.contextPath}/userPagingList">User_PageList</a></li>
+		<li class="active"><a href="${pageContext.request.contextPath}/userPagingList">/user/pagination.jsp</a></li>
 		
 		<!-- a 태그는 기본적으로 get방식을 사용 -->
 		<li class="active"><a href="${pageContext.request.contextPath}/lprodpagination">Lprod_PageList</a></li>

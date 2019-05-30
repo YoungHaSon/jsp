@@ -12,10 +12,7 @@
 
 	<select id="getUser" resultType="UserVo" parameterType="String">
 		select
-		USERID,
-		NAME,
-		ALIAS,
-		PASS
+		*
 		from
 		users
 		where

@@ -10,11 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.IuserService;
 import kr.or.ddit.user.service.UserService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 	
@@ -35,8 +33,6 @@ import org.slf4j.LoggerFactory;
 	 * </pre>
 	 */
 	
-	
-
 	// web.xnl servlet, servlet-mapping --> java annotation
 	@WebServlet("/login")
 	public class LoginController extends HttpServlet {

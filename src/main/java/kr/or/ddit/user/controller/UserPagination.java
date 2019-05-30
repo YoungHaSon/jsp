@@ -1,4 +1,4 @@
-package kr.or.ddit.paging.model;
+package kr.or.ddit.user.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,8 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import kr.or.ddit.paging.model.PageVo;
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.IuserService;
 import kr.or.ddit.user.service.UserService;
@@ -20,7 +20,7 @@ import kr.or.ddit.user.service.UserService;
  * Servlet implementation class Pagingnation
  */
 @WebServlet("/userPagingList")
-public class Pagination extends HttpServlet {
+public class UserPagination extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	// 필수입니다 리스트를 받아올라면~!!

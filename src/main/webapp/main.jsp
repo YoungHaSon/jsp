@@ -3,6 +3,8 @@
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,6 +56,7 @@
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			%>
 				<%=sdf.format(date) %>, room 204
+			<!-- Date를 el형식으로 어찌 바꾸지??? -->
 			</p>
 
 			<p>jsp를 통한 웹 프로그래밍 학습</p>
