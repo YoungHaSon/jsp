@@ -49,12 +49,12 @@
 								<!-- for을 돌릴 대상을 items에 넣으면 된다 el로!! user라는 이름에 하나씩 넣어준다. -->
 								<!-- userList의 데이터를 한건 조회해서 pageContext.setAttribute("user",vo); -->
 								<!-- var="user" userVo타입입니다... -->
-								<c:forEach items="${userList }" var="user">
+								<c:forEach items="${userList }" var="vo" varStatus="status">
 											<tr>
 											<!-- user.userId / userId는-> userVo 속성명을 가져다 쓴다  -->
-												<td>${user.userId }</td>
-												<td>${user.name }</td>
-												<td>${user.alias }</td>
+												<td>${status.index}/${vo.userId }</td>
+												<td>${vo.name }</td>
+												<td>${vo.alias }</td>
 												<td></td>
 											</tr>
 								</c:forEach>

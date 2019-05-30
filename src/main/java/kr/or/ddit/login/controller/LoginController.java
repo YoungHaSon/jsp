@@ -2,19 +2,26 @@
 	
 	import java.io.IOException;
 	
+
+
 	import javax.servlet.RequestDispatcher;
-	import javax.servlet.ServletException;
-	import javax.servlet.annotation.WebServlet;
-	import javax.servlet.http.Cookie;
-	import javax.servlet.http.HttpServlet;
-	import javax.servlet.http.HttpServletRequest;
-	import javax.servlet.http.HttpServletResponse;
-	import javax.servlet.http.HttpSession;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 	
+
+
 	import kr.or.ddit.user.model.UserVo;
 	
+import kr.or.ddit.user.service.IuserService;
+import kr.or.ddit.user.service.UserService;
+
 	import org.slf4j.Logger;
-	import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory;
 	
 	/**
 	 * LoginController.java 로그인 처리 컨트롤러
@@ -33,11 +40,20 @@
 	 * </pre>
 	 */
 	
+	
+
 	// web.xnl servlet, servlet-mapping --> java annotation
 	@WebServlet("/login")
 	public class LoginController extends HttpServlet {
 		private static final long serialVersionUID = 1L;
-	
+		
+		private IuserService userService;
+		
+		@Override
+		public void init() throws ServletException {
+			userService = new UserService();
+		}
+		
 		// 개발할 때 쓰이는 아주 중요한것!
 		private static final Logger logger = LoggerFactory
 				.getLogger(LoginController.class);
@@ -66,7 +82,6 @@
 				request.getRequestDispatcher("/login/login.jsp").forward(request,
 						response);
 			}
-	
 		}
 	
 		// 로그인 요청을 처리
@@ -77,10 +92,11 @@
 			logger.debug("parameter password {} ", request.getParameter("password"));
 			logger.debug("rememberme parameter :"+ request.getParameter("rememberme"));
 	
-			for (Cookie cookie : request.getCookies()) {
-				logger.debug("cookie : " + cookie.getName(), cookie.getValue());
+			if(request.getCookies() !=null){
+				for (Cookie cookie : request.getCookies()) {
+					logger.debug("cookie : " + cookie.getName(), cookie.getValue());
+				}
 			}
-	
 			// 사용자 파라미터 userId, password
 			String userId = request.getParameter("userId");
 			String password = request.getParameter("password");
@@ -91,9 +107,10 @@
 			// 불일치
 	
 			// 일치하면 .... 로그인 성공 --> Main화면으로 이동
-			if ((userId.equals("brown") && password.equals("brown1234"))
-					|| (userId.equals("sally") && password.equals("sally1234"))) {
-
+			//UserVo uservo = userService.getUser(userId) --> 반환 타입은userVo입니다!
+			UserVo uservo = userService.getUser(userId); 
+			if(uservo!=null&&uservo.getPass().equals(password)){
+				
 				//remember파라미터가 존재할 경우 userID, remember cookie 설정해준다
 				//remember파라미터가 존재하지 않을 결우 userID, remember cookie 삭제해준다
 				int cookieMaxAge = 0;
@@ -115,7 +132,8 @@
 				HttpSession session = request.getSession();
 	
 				// 이문장 왜쓴거지? 임의로 설정한거
-				session.setAttribute("USER_INFO", new UserVo("브라운", "brown", "곰"));
+				//userVo를 넘기는 것입니다!!!!!!
+				session.setAttribute("USER_INFO", uservo);
 	
 				RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
 				rd.forward(request, response);
@@ -126,12 +144,10 @@
 				// 현상환에서 /jsp/login URl로 dispatch 방식으로 위임이 불가!?????
 				// request.getMethod(); //Get, Post라는 값을 리턴함.
 	
-				
-				request.getRequestDispatcher(request.getContextPath() + "/login").forward(request, response);
+				//로그인 실패해도 login화면에 들어오면 ID를 띄워줄라고
+				//이동하는 경로 잘생각..
+				request.getRequestDispatcher("/login/login.jsp").forward(request, response);
 //				response.sendRedirect(request.getContextPath() + "/login");
-	
 			}
-	
 		}
-	
 	}

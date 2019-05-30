@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,6 +13,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
+<style>
+#p1{
+	color : red;
+}
+</style>	
 
 <title>Jsp</title>
 	<!-- Lib(Css,js) -->
@@ -32,7 +39,7 @@
 
 <div class="blog-header">
 	<h1 class="blog-title">Main</h1>
-	<p class="lead blog-description">Jsp / Spring. <%= ((UserVo)session.getAttribute("USER_INFO")).getName() %></p>
+	<p class="lead blog-description">Jsp / Spring.</p>
 </div>
 
 <div class="row">
@@ -41,8 +48,12 @@
 
 		<div class="blog-post">
 			<h2 class="blog-post-title">JSP</h2>
-			<p class="blog-post-meta">
-				2017.10.30, room 201
+			<p id="p1" class="blog-post-meta">
+			<%
+				Date date = new Date();
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			%>
+				<%=sdf.format(date) %>, room 204
 			</p>
 
 			<p>jsp를 통한 웹 프로그래밍 학습</p>
