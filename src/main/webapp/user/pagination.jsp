@@ -79,7 +79,7 @@
 									<th>등록일시</th>
 								</tr>
  
- 								<!-- userList 속성의 값을 다 뽑아 내는??? -->
+ 								<!-- userList user들을 출력해주는! -->
 								<c:forEach items="${userList }" var="vo">
 									<!-- data-는 참고로 대문자 안먹어요 -->
 									<tr class="userTr" data-userid="${vo.userId} }">
@@ -92,7 +92,7 @@
 							</table>
 						</div>
 
-						<a class="btn btn-default pull-right">사용자 등록</a>
+						<a href="${pageContext.request.contextPath}/userForm" class="btn btn-default pull-right">사용자 등록</a>
 
 						<!-- 
 							사용자수 : 105건

@@ -36,9 +36,6 @@ public class UserListController extends HttpServlet {
 		// userList객체를 이용하여 사용자 화면을 생성하는 jsp
 		request.getRequestDispatcher("/user/userList.jsp").forward(request, response);
 		
-		
-		
-		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

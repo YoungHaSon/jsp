@@ -1,11 +1,12 @@
 package kr.or.ddit.user.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UserVo {
 
-	private String name;
 	private String userId;
+	private String name;
 	private String alias;
 	private String pass;
 	private String addr1;
@@ -19,21 +20,41 @@ public class UserVo {
 		//기본생성자
 	}
 
-	public UserVo(String name, String userId, String alias, String pass,
-			String addr1, String addr2, String zipcd, Date birth, String path,
-			String filename) {
+	
+	
+	/**
+	 * @param name
+	 * @param userId
+	 * @param alias
+	 * @param pass
+	 * @param addr1
+	 * @param addr2
+	 * @param zipcd
+	 * @param birth
+	 */
+	public UserVo(String userId, String name, String alias, String pass,
+			String addr1, String addr2, String zipcd, Date birth) {
 		super();
-		this.name = name;
 		this.userId = userId;
+		this.name = name;
 		this.alias = alias;
 		this.pass = pass;
 		this.addr1 = addr1;
 		this.addr2 = addr2;
 		this.zipcd = zipcd;
 		this.birth = birth;
-		this.path = path;
-		this.filename = filename;
 	}
+
+	// birth를 찍느....
+	public String getBirthStr(){
+		SimpleDateFormat sdf = new SimpleDateFormat();
+		String date = sdf.format(birth);
+		if(date ==null){
+			return "";
+		}
+		return date;
+	}
+	
 
 	public String getName() {
 		return name;

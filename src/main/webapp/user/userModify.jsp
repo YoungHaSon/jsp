@@ -19,10 +19,45 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>사용자 상세조회</title>
+<title>사용자 등록</title>
 
 <!-- LibLib(Css,js) -->
 <%@include file="/common/basicLib.jsp"%>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+
+	$(document).ready(function(){
+		
+		var msg = '${msg}';
+		if(msg != '')
+			alert(msg);
+		
+    	$('#addrSearchbtn').on('click', function(){
+    		 new daum.Postcode({
+	   		        oncomplete: function(data) {
+	   		        //주소 input value에 설정 data.roadAddress
+	   		        //우편번호 input value에 설정 data.zonecode
+	   		        $('#zipcd').val(data.zonecode);
+	   		        $('#addr1').val(data.roadAddress);
+   		        }
+   		    }).open();
+    	});
+    	
+    	//사용자 등록 버튼 클릭 이벤트 헨들러
+    	$("#userRegBtn").on('click', function(){
+			//유효성 체크!
+			
+			//여기까지 도달하면 유효성 검사 완료 -->(submit) 
+			$("#frm").submit();
+			
+    	});
+    	
+		//개발용 데이터 초기화 함수 *** 추후 지울것!
+	});
+	
+	
+		
+</script>
 </head>
 
 <body>
@@ -38,15 +73,13 @@
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">사용자 상세정보</h2>
+						<h2 class="sub-header">사용자 수정</h2>
 						
-						<form id="frm" class="form-horizontal" role="form" action="${pageContext.request.contextPath }/UserModifyController" method="get">
-							<input value="${userVo.userId }" type="hidden" id="userId" name="userId">
-							
+						<form id="frm" class="form-horizontal" role="form" action="${pageContext.request.contextPath }/UserModifyController" method="post">
+						
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자 사진&nbsp;&nbsp; :  </label>
 								<div class="col-sm-10">
-								<!-- get방식으로 갑니다잉 -->
 									<img src="${pageContext.request.contextPath }/profile?userId=${userVo.userId}">
 								</div>
 							</div>
@@ -54,57 +87,65 @@
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자아이디&nbsp;&nbsp; :  </label>
 								<div class="col-sm-10">
-									<label class="control-label">${requestScope.userVo.userId }</label>
-										<!-- <input type="text" class="form-control" id="userId"
-										name="userId" placeholder="사용자 아이디"> -->
+									<input type="text" class="form-control" id="userId"	name="userId" placeholder="아이디" value="${userVo.userId }" readonly/> 
 								</div>
 							</div>
+							
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자이름&nbsp;&nbsp; :  </label>
 								<div class="col-sm-10">
-									<label class="control-label">${requestScope.userVo.name }</label>
+									<input type="text" class="form-control" id="name" name="name" placeholder="이름" value="${userVo.name }" /> 
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="userNm" class="col-sm-2 control-label">비밀번호&nbsp;&nbsp; :  </label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="pass" name="pass" placeholder="비밀번호" value="${userVo.pass }"  />
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">별명&nbsp;&nbsp; :  </label>
 								<div class="col-sm-10">
-									<label class="control-label">${requestScope.userVo.alias }</label>
+									<input type="text" class="form-control" id="alias" name="alias" placeholder="별명" value="${userVo.alias }" /> 
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">생일&nbsp;&nbsp; :  </label>
 								<div class="col-sm-10">
-							<fmt:formatDate value="${requestScope.userVo.birth }" var="birth" pattern="yyyy-MM-dd"/>
-									<label class="control-label">${birth }</label>
+									<input type="date" class="form-control" id="birth" name="birth" placeholder="생일" value="${userVo.birthStr }" /> 
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">우편번호&nbsp;&nbsp; :  </label>
-								<div class="col-sm-10">
-									<label class="control-label">${requestScope.userVo.zipcd }</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="zipcd" name="zipcd" placeholder="우편번호" readonly  value="${userVo.zipcd }"/>
+								</div>
+								<div class="col-sm-2">
+									<button type="button" id="addrSearchbtn" class="btn btn-default pull-right">주소 검색</button>
 								</div>
 							</div>
 							
 							<div class="form-group">
-								<label for="userNm" class="col-sm-2 control-label">주소&nbsp;&nbsp; :  </label>
+								<label for="userNm" class="col-sm-2 control-label">주소&nbsp; :  </label>
 								<div class="col-sm-10">
-									<label class="control-label">${requestScope.userVo.addr1 }</label>
+									<input type="text" class="form-control" id="addr1" name="addr1" placeholder="주소" readonly value="${userVo.addr1 }" />
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">상세주소&nbsp;&nbsp; :  </label>
 								<div class="col-sm-10">
-									<label class="control-label">${requestScope.userVo.addr2 }</label>
+									<input type="text" class="form-control" id="addr2" name="addr2" placeholder="상세주소" value="${userVo.addr2 }" />
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button type="submit">정보수정</button>
+									<button id="userRegBtn" type="button" class="btn btn-default">수정등록</button>
 								</div>
 							</div>
 						</form>

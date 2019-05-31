@@ -15,37 +15,15 @@ td {
 </head>
 <body>
 
-
-	<c:set var="num1" value="${param.num1}"/>
-	<c:set var="num2" value="${param.num2}"/>
-	
 	<table>
-		<c:choose>
-			<c:when test="${num1 && num2 == null}">
-				<c:forEach var="i" begin="1" end="9">
-					<tr>
-						<c:forEach var="j" begin="${num1 }" end="${num2 }">
-							<td>${j}*${i}= ${j*i }</td>
-						</c:forEach>
-					</tr>
+		<c:forEach var="i" begin="1" end="${param.num2 eq null ? 9 : param.num2}">
+			<tr>
+				<c:forEach var="j" begin="2" end="${param.num1 eq null ? 9: param.num1}">
+					<td>${j}*${i}= ${j*i }</td>
 				</c:forEach>
-			</c:when>
-			
-			<c:otherwise>
-				<c:when test="${num1 && num2 != null}">
-				<c:forEach var="i" begin="1" end="9">
-					<tr>
-						<c:forEach var="j" begin="${num1 }" end="${num2 }">
-							<td>${j}*${i}= ${j*i }</td>
-						</c:forEach>
-					</tr>
-				</c:forEach>
-			</c:when>
-			</c:otherwise>
-		</c:choose>
+			</tr>
+		</c:forEach>
 	</table>
-
-
 
 </body>
 </html>

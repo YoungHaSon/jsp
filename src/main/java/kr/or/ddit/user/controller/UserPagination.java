@@ -64,7 +64,6 @@ public class UserPagination extends HttpServlet {
 		//왜? 이거 보내주지???
 		request.setAttribute("pageVo", pageVo);
 		
-		
 		RequestDispatcher rd = request.getRequestDispatcher("/user/pagination.jsp");
 		rd.forward(request, response);
 	}
