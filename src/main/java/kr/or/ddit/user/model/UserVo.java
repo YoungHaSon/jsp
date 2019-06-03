@@ -47,9 +47,9 @@ public class UserVo {
 
 	// birth를 찍느....
 	public String getBirthStr(){
-		SimpleDateFormat sdf = new SimpleDateFormat();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String date = sdf.format(birth);
-		if(date ==null){
+		if(date == null){
 			return "";
 		}
 		return date;
