@@ -82,7 +82,7 @@ public class FileUploadServlet extends HttpServlet {
 			File YFolder = new File("d:\\upload\\" + yyyy);
 			// 신규년도로 넘어갔을때 해당 년도의 폴더를 생성한다.
 			if (!YFolder.exists()) {
-				// 디렉토리 생성?
+				// 디렉토리 생성? 
 				YFolder.mkdir();
 			}
 
