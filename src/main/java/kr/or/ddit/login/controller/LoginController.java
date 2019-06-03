@@ -10,9 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.IuserService;
 import kr.or.ddit.user.service.UserService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 	
@@ -91,6 +94,8 @@ import org.slf4j.LoggerFactory;
 			// 사용자 파라미터 userId, password
 			String userId = request.getParameter("userId");
 			String password = request.getParameter("password");
+			String encryptPassword = KISA_SHA256.encrypt(password);
+			
 	
 			// 일반적으로 DB에서 해당 사용자의 정보조회(service객체, dao객체)
 			// 해당 사용자 정보를 이용하여 사용자가 보낸 userId, password가 일치하는 지 검사
@@ -100,7 +105,7 @@ import org.slf4j.LoggerFactory;
 			// 일치하면 .... 로그인 성공 --> Main화면으로 이동
 			//UserVo uservo = userService.getUser(userId) --> 반환 타입은userVo입니다!
 			UserVo uservo = userService.getUser(userId); 
-			if(uservo!=null&&uservo.getPass().equals(password)){
+			if(uservo!=null && encryptPassword.equals(uservo.getPass())){
 				
 				//remember파라미터가 존재할 경우 userID, remember cookie 설정해준다
 				//remember파라미터가 존재하지 않을 결우 userID, remember cookie 삭제해준다
