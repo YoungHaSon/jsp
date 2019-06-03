@@ -117,7 +117,7 @@ public class UserServiceTest {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			
 				UserVo userVo = new UserVo("대덕인", "userTest", "중앙로", "userTest1234",
-						"대전광역시 중구 중앙로76", "영민빌딩 204호", "34940", sdf.parse("2019-05-31"));
+						"대전광역시 중구 중앙로76", "영민빌딩 204호", "34940", sdf.parse("2019-05-31"),"","");
 			
 			/***When***/
 			//userDao.insertUser()

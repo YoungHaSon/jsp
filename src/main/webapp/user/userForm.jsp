@@ -51,20 +51,20 @@
 			
     	});
     	
-		//개발용 데이터 초기화 함수 *** 추후 지울것!
-    	dataInit();
+// 		//개발용 데이터 초기화 함수 *** 추후 지울것!
+//     	dataInit();
 	});
 	
-	function dataInit(){
-		$("#userId").val("userTest");
-		$("#name").val("대덕인");
-		$("#pass").val("userTest1234");
-		$("#alias").val("중앙로");
-		$("#birth").val("2019-05-31");
-		$("#zipcd").val("34940");
-		$("#addr1").val("대전광역시 중구 중앙로76");
-		$("#addr2").val("영민빌딩  204호");
-	};
+// 	function dataInit(){
+// 		$("#userId").val("userTest");
+// 		$("#name").val("대덕인");
+// 		$("#pass").val("userTest1234");
+// 		$("#alias").val("중앙로");
+// 		$("#birth").val("2019-05-31");
+// 		$("#zipcd").val("34940");
+// 		$("#addr1").val("대전광역시 중구 중앙로76");
+// 		$("#addr2").val("영민빌딩  204호");
+// 	};
 	
 		
 </script>
@@ -85,12 +85,13 @@
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">사용자 등록</h2>
 						
-						<form id="frm" class="form-horizontal" role="form" action="${pageContext.request.contextPath }/userForm" method="post">
+						<form id="frm" class="form-horizontal" role="form" action="${pageContext.request.contextPath }/userForm" method="post" 
+							enctype="multipart/form-data">
 						
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자 사진&nbsp;&nbsp; :  </label>
 								<div class="col-sm-10">
-									<input type="file" name="filename"/>
+									<input type="file" name="profile"/>
 								</div>
 							</div>
 						

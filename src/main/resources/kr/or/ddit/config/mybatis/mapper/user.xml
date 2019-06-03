@@ -45,10 +45,11 @@
 			users
 	</select>
 
+<!-- 사용자 등록 -->
 	<insert id="insertUser" parameterType="UserVo">
 		insert into users 
 		VALUES
-			(#{userId},#{name},#{alias},#{pass},#{addr1},#{addr2},#{zipcd},#{birth},'','')
+			(#{userId},#{name},#{alias},#{pass},#{addr1},#{addr2},#{zipcd},#{birth},#{path, jdbcType=VARCHAR},#{filename, jdbcType=VARCHAR})
 	</insert>
 	
 	<!-- 사용자 삭제 -->
@@ -64,9 +65,11 @@
 			    ALIAS = #{alias},
 			    PASS = #{pass},
 			    ADDR1 = #{addr1},
-			    ADDR2 = #{addr2},
+			    ADDR2 = #{addr2 },
 			    ZIPCD = #{zipcd},
-			    BIRTH = #{birth}
+			    BIRTH = #{birth},
+			    PATH = #{path},
+			    FILENAME = #{filename}
 			where
 	  			USERID = #{userId}
 	</update>

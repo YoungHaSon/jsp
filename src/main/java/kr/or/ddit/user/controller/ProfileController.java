@@ -29,16 +29,26 @@ public class ProfileController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//사용자 아이디를 파라미터로 부터 확인해서
 		String userId = request.getParameter("userId");
-		
 		//사용자 정보(Path)를 조회
 		UserVo userVo = userService.getUser(userId);
-		
+		String path = userVo.getPath();
 		//path 정보로 file을 읽어서 
 		ServletOutputStream sos = response.getOutputStream();
 		
-		File file = new File(userVo.getPath());
+		FileInputStream fis = null;
+		String filePath = null;
 		
-		FileInputStream fis = new FileInputStream(file);
+		//사진 존재하는 경우
+		if(userVo.getPath() != null){
+			filePath = userVo.getPath();
+		//사진이 없는경우
+		}else{
+			filePath = getServletContext().getRealPath("/img/재고없음.png");
+		}
+		
+		//화면에 띄워주는 부분!
+		File file = new File(filePath);
+		fis = new FileInputStream(file);
 		byte[] buffer = new byte[512];
 		
 		//다읽으면 -1 반환, 	
@@ -48,13 +58,9 @@ public class ProfileController extends HttpServlet {
 		}
 		fis.close();
 		sos.close();
-		
-		
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		
 	}
 

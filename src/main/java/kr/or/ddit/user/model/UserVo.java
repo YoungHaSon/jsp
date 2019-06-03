@@ -14,14 +14,12 @@ public class UserVo {
 	private String zipcd;
 	private Date birth;
 	private String path;
-	private String filename;
+	private String fileName;
 	
 	public UserVo(){
 		//기본생성자
 	}
 
-	
-	
 	/**
 	 * @param name
 	 * @param userId
@@ -33,7 +31,7 @@ public class UserVo {
 	 * @param birth
 	 */
 	public UserVo(String userId, String name, String alias, String pass,
-			String addr1, String addr2, String zipcd, Date birth) {
+			String addr1, String addr2, String zipcd, Date birth, String path, String fileName) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -43,6 +41,8 @@ public class UserVo {
 		this.addr2 = addr2;
 		this.zipcd = zipcd;
 		this.birth = birth;
+		this.path = path;
+		this.fileName = fileName;
 	}
 
 	// birth를 찍느....
@@ -129,11 +129,11 @@ public class UserVo {
 	}
 
 	public String getFilename() {
-		return filename;
+		return fileName;
 	}
 
 	public void setFilename(String filename) {
-		this.filename = filename;
+		this.fileName = filename;
 	}
 
 	@Override
@@ -141,7 +141,7 @@ public class UserVo {
 		return "UserVo [name=" + name + ", userId=" + userId + ", alias="
 				+ alias + ", pass=" + pass + ", addr1=" + addr1 + ", addr2="
 				+ addr2 + ", zipcd=" + zipcd + ", birth=" + birth + ", path="
-				+ path + ", filename=" + filename + "]";
+				+ path + ", filename=" + fileName + "]";
 	}
 	
 	
