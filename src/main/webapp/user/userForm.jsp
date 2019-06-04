@@ -55,16 +55,16 @@
 //     	dataInit();
 	});
 	
-// 	function dataInit(){
-// 		$("#userId").val("userTest");
-// 		$("#name").val("대덕인");
-// 		$("#pass").val("userTest1234");
-// 		$("#alias").val("중앙로");
-// 		$("#birth").val("2019-05-31");
-// 		$("#zipcd").val("34940");
-// 		$("#addr1").val("대전광역시 중구 중앙로76");
-// 		$("#addr2").val("영민빌딩  204호");
-// 	};
+	function dataInit(){
+		$("#userId").val("userTest");
+		$("#name").val("대덕인");
+		$("#pass").val("userTest1234");
+		$("#alias").val("중앙로");
+		$("#birth").val("2019-05-31");
+		$("#zipcd").val("34940");
+		$("#addr1").val("대전광역시 중구 중앙로76");
+		$("#addr2").val("영민빌딩  204호");
+	};
 	
 		
 </script>

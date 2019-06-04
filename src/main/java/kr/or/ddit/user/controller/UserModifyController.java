@@ -20,6 +20,7 @@ import javax.servlet.jsp.PageContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.IuserService;
 import kr.or.ddit.user.service.UserService;
@@ -63,16 +64,19 @@ public class UserModifyController extends HttpServlet {
 		
 		String userId = request.getParameter("userId");
 		String name = request.getParameter("name");
-		String pass = request.getParameter("pass");
 		String alias = request.getParameter("alias");
 		String birth = request.getParameter("birth"); // Date타입으로 바꿔줘야한다
 		String zipcd = request.getParameter("zipcd");
 		String addr1 = request.getParameter("addr1");
 		String addr2 = request.getParameter("addr2");
+
+		//사용자가 보낸 평문 비밀번호 데이터 --> 암화화!
+		String pass = request.getParameter("pass");
+		pass = KISA_SHA256.encrypt(pass);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
-		//
+		//이 친구가 하는 역할은 뭘까? 
 		UserVo userVo = null;
 		try {
 			userVo = new UserVo(userId, name, alias, pass, addr1, addr2, zipcd, sdf.parse(birth),"","");

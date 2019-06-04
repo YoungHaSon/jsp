@@ -96,7 +96,6 @@ import org.slf4j.LoggerFactory;
 			String password = request.getParameter("password");
 			String encryptPassword = KISA_SHA256.encrypt(password);
 			
-	
 			// 일반적으로 DB에서 해당 사용자의 정보조회(service객체, dao객체)
 			// 해당 사용자 정보를 이용하여 사용자가 보낸 userId, password가 일치하는 지 검사
 			// 하지만 우리는 --> userId : brown이고 password : brown1234라는 값일 때 통과, 그 이외값은
@@ -105,6 +104,7 @@ import org.slf4j.LoggerFactory;
 			// 일치하면 .... 로그인 성공 --> Main화면으로 이동
 			//UserVo uservo = userService.getUser(userId) --> 반환 타입은userVo입니다!
 			UserVo uservo = userService.getUser(userId); 
+			
 			if(uservo!=null && encryptPassword.equals(uservo.getPass())){
 				
 				//remember파라미터가 존재할 경우 userID, remember cookie 설정해준다
