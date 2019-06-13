@@ -1,3 +1,5 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@page import="kr.or.ddit.paging.model.PageVo"%>
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -72,6 +74,27 @@
 	<c:forEach var="i" begin="1" end="10" step="2">
 		${i }<br>
 	</c:forEach>
+	
+	<h2>foreach Map</h2>
+	<%
+		Map<String, String> dataMap = new HashMap<String, String>();
+		//name, age, hp
+		dataMap.put("name", "cony");
+		dataMap.put("age", "7");
+		dataMap.put("hp", "010-0000-0000");
+		
+		//java에서 Map을 for돌리려면 -->dataMap.entrySet() or dataMap.keySet() --> 으로 for문을 돌려야함
+		for(String key : dataMap.keySet())
+			out.write(dataMap.get(key) + "<br>");
+		
+		//el에서 for문을 돌리려면 속성값이어야한다.
+		request.setAttribute("dataMap", dataMap);
+	%>
+	<hr style="border : 1px solid red">
+	<c:forEach items="${dataMap}" var="data">
+		${data.key} /  ${data.value}<br>
+	</c:forEach>
+	
 			
 </body>
 </html>

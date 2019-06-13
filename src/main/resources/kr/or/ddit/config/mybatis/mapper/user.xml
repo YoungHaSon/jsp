@@ -59,7 +59,7 @@
 	</delete>
 	
 	<update id="updateUser" parameterType="UserVo">
-		update users
+		update userss
 			set
 			    NAME = #{name},
 			    ALIAS = #{alias},

@@ -60,8 +60,6 @@ public class UserPagination extends HttpServlet {
 		
 		request.setAttribute("userList", userList);
 		request.setAttribute("paginationSize", paginationSize);
-		
-		//왜? 이거 보내주지???
 		request.setAttribute("pageVo", pageVo);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/user/pagination.jsp");

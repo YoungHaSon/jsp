@@ -86,7 +86,7 @@
 									<td class="userId">${vo.userId }</td>
 									<td>${vo.name }</td>
 									<td>${vo.alias }</td>
-									<td></td>
+									<td></td>	
 									</tr>
 								</c:forEach>
 							</table>

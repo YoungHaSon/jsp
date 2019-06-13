@@ -51,13 +51,13 @@
 								<!-- userList의 데이터를 한건 조회해서 pageContext.setAttribute("user",vo); -->
 								<!-- var="user" userVo타입입니다... -->
 								<c:forEach items="${userList }" var="vo" varStatus="status">
-											<tr>
-											<!-- user.userId / userId는-> userVo 속성명을 가져다 쓴다  -->
-												<td>${vo.userId }</td>
-												<td>${vo.name }</td>
-												<td>${vo.alias }</td>
-												<td></td>
-											</tr>
+									<tr>
+									<!-- user.userId / userId는-> userVo 속성명을 가져다 쓴다  -->
+										<td>${vo.userId }</td>
+										<td>${vo.name }</td>
+										<td>${vo.alias }</td>
+										<td></td>
+									</tr>
 								</c:forEach>
 							</table>
 						</div>
