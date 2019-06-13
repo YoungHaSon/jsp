@@ -111,7 +111,7 @@
 								<%//el로 바꾸면! %>
       <form id="frm" action="${pageContext.request.contextPath}/login" method="post" class="form-signin">
       
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Please sign in ${requestMap}</h2>
         
         <label for="userId" class="sr-only">userId</label>
         
