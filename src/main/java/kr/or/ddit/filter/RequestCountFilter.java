@@ -13,16 +13,11 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 //모든 url 요청에 대해서 count하겠다!
 @WebFilter("/*")
 public class RequestCountFilter implements Filter {
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(RequestCountFilter.class);
-	
+
 	//jsp/login : 10
 	//jsp/userList : 20 
 	private Map<String, Integer> requestMap;
@@ -42,7 +37,7 @@ public class RequestCountFilter implements Filter {
 		String uri = req.getRequestURI();
 		int reqCount = requestMap.getOrDefault(uri, 0);
 		reqCount ++;
-		requestMap.put("uri", reqCount);
+		requestMap.put(uri, reqCount);
 		
 		chain.doFilter(request, response);
 	}

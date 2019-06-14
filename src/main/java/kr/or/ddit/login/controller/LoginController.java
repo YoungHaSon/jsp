@@ -56,6 +56,7 @@ import org.slf4j.LoggerFactory;
 		protected void doGet(HttpServletRequest request,
 				HttpServletResponse response) throws ServletException, IOException {
 			logger.debug("LoginController doGet()");
+			logger.debug("parameter UNT_CD {} ", request.getParameter("UNT_CD"));
 	
 			// login 화면을 처리해줄 누군가?에게 위임 (단순 login화면을 html로 응답을 생성해주는 작업이 필요)
 			// /login/login.jsp 위임하면 댐! --> 서버상에 별도의 상태변경을 가하는 요청이 아니기 때문에
@@ -82,6 +83,7 @@ import org.slf4j.LoggerFactory;
 		protected void doPost(HttpServletRequest request,
 				HttpServletResponse response) throws ServletException, IOException {
 			// 처리를 잘하면 console 창에 찍는다!
+			logger.debug("parameter UNT_CD {} ", request.getParameter("UNT_CD"));
 			logger.debug("parameter userId {} ", request.getParameter("userId"));
 			logger.debug("parameter password {} ", request.getParameter("password"));
 			logger.debug("rememberme parameter :"+ request.getParameter("rememberme"));
@@ -104,7 +106,9 @@ import org.slf4j.LoggerFactory;
 			// 일치하면 .... 로그인 성공 --> Main화면으로 이동
 			//UserVo uservo = userService.getUser(userId) --> 반환 타입은userVo입니다!
 			UserVo uservo = userService.getUser(userId); 
-			
+			logger.debug("uservo : {}" ,uservo);
+			logger.debug("encryptPassword : {}" ,encryptPassword);
+		
 			if(uservo!=null && encryptPassword.equals(uservo.getPass())){
 				
 				//remember파라미터가 존재할 경우 userID, remember cookie 설정해준다

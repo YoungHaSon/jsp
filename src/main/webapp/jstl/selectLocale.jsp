@@ -29,7 +29,7 @@
 <body>
 <fieldset id="fs1">
 	<legend>select locale</legend>
-	<form id="frm" action="${pageContext.request.contextPath}/selectLocale" method="post">
+	<form id="frm" action="${cp}/selectLocale" method="post">
 		<select id="locale" name="locale">
 			<option value="ko">한국어</option>
 			<option value="en">English</option>

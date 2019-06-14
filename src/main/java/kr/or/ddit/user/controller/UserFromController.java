@@ -55,7 +55,7 @@ public class UserFromController extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("userForm doPost()");
 
-		request.setCharacterEncoding("UTF-8");
+//		request.setCharacterEncoding("UTF-8"); --> 필터로 옮김!
 
 		// 사용자가 보낸 파라미터를 사용해서 UserVo 인스턴스를 만들어서
 		String userId = request.getParameter("userId");

@@ -60,7 +60,7 @@ public class UserModifyController extends HttpServlet {
 		logger.debug("Modify doPost");
 		
 		
-		request.setCharacterEncoding("UTF-8");
+//		request.setCharacterEncoding("UTF-8"); --> 필터로!ㄱㄱ
 		
 		String userId = request.getParameter("userId");
 		String name = request.getParameter("name");
