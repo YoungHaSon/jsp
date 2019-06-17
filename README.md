@@ -8,3 +8,4 @@
 - [x] 완료된 항목
 - [ ] 미완료 항목
 - [x] ~~삭제된 항목~~
+![Minion](http://octodex.github.com/images/minion.png
