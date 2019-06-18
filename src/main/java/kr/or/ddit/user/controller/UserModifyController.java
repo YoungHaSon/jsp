@@ -6,7 +6,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.UUID;
 
-import javax.imageio.stream.FileImageInputStream;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -15,16 +14,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import javax.servlet.jsp.PageContext;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.service.IuserService;
 import kr.or.ddit.user.service.UserService;
 import kr.or.ddit.util.PartUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @WebServlet("/UserModifyController")
