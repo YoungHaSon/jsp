@@ -28,7 +28,7 @@ public class ARIAUtil {
 		instance.encrypt(p, c, p.length);
 
 		return ARIAEngine.byteArrayToHex(c).toUpperCase();
-	}
+	} 
 
 	/**
 	 * @param privateKey
