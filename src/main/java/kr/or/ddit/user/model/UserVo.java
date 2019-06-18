@@ -9,11 +9,10 @@ import javax.servlet.http.HttpSessionBindingListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UserVo implements HttpSessionBindingListener{
+public class UserVo implements HttpSessionBindingListener {
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(UserVo.class);
-	
+	private static final Logger logger = LoggerFactory.getLogger(UserVo.class);
+
 	private String userId;
 	private String name;
 	private String alias;
@@ -24,9 +23,9 @@ public class UserVo implements HttpSessionBindingListener{
 	private Date birth;
 	private String path;
 	private String fileName;
-	
-	public UserVo(){
-		//기본생성자
+
+	public UserVo() {
+		// 기본생성자
 	}
 
 	/**
@@ -40,7 +39,8 @@ public class UserVo implements HttpSessionBindingListener{
 	 * @param birth
 	 */
 	public UserVo(String userId, String name, String alias, String pass,
-			String addr1, String addr2, String zipcd, Date birth, String path, String fileName) {
+			String addr1, String addr2, String zipcd, Date birth, String path,
+			String fileName) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -55,15 +55,15 @@ public class UserVo implements HttpSessionBindingListener{
 	}
 
 	// birth를 찍느....
-	public String getBirthStr(){
+	public String getBirthStr() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String date = sdf.format(birth);
-		if(date == null){
+		if (date == null) {
 			return "";
 		}
 		return date;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -151,7 +151,7 @@ public class UserVo implements HttpSessionBindingListener{
 				+ addr2 + ", zipcd=" + zipcd + ", birth=" + birth + ", path="
 				+ path + ", filename=" + fileName + "]";
 	}
-	
+
 	@Override
 	public void valueBound(HttpSessionBindingEvent event) {
 		logger.debug("value Bound");
@@ -161,5 +161,5 @@ public class UserVo implements HttpSessionBindingListener{
 	public void valueUnbound(HttpSessionBindingEvent event) {
 		logger.debug("value Unbound");
 	}
-	
+
 }

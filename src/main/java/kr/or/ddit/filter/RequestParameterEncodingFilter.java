@@ -25,14 +25,14 @@ public class RequestParameterEncodingFilter implements Filter {
 			.getLogger(RequestParameterEncodingFilter.class);
    
     public RequestParameterEncodingFilter() {
-        // TODO Auto-generated constructor stub
     }
 	
 	public void destroy() {
-		// TODO Auto-generated method stub
+		//필터가 웹 콘테이너에서 삭제될 때 호출된다.
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		//체인을 따라 다음에 존재하는 필터로 이동한다. 체인의 가장 마지막에는 클라이언트가 요청한 최종 자원이 위치한다.
 		logger.debug("여기는 UTF-8로 인코딩 하는 곳입니다.");
 		
 		request.setCharacterEncoding("UTF-8");
@@ -42,7 +42,7 @@ public class RequestParameterEncodingFilter implements Filter {
 
 	
 	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
+		//필터를 웹 콘테이너내에 생성한 후 초기화할 때 호출한다.
 	}
 
 }

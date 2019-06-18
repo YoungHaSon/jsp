@@ -38,9 +38,9 @@
 		]]>
 	</select>
 	
-	<!-- 사용자 전체 수 조회 -->
+	<!-- 사용자 전체 수 조회 쿼리튜닝! -->
 	<select id="usersCnt" resultType="int">
-		select count(*)
+		select /*+INDEX_FFS(users PK_USERS)*/ count(*)
 		from 
 			users
 	</select>
